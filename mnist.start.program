@@ -1,0 +1,10 @@
+{ // block 0
+    persist trainable param fc_0.w_0 : fluid.VarType.LOD_TENSOR.shape(2, 3).astype(VarType.FP32)
+    persist trainable param fc_1.w_0 : fluid.VarType.LOD_TENSOR.shape(3, 3).astype(VarType.FP32)
+    persist var learning_rate_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+
+    {Out=['learning_rate_0']} = fill_constant(inputs={}, dtype = 5, force_cpu = False, op_device = , op_namescope = /, op_role = 0, op_role_var = [], shape = [1], str_value = , value = 0.009999999776482582)
+    {Out=['fc_1.w_0']} = fill_constant(inputs={}, dtype = 5, force_cpu = False, op_device = , op_namescope = /, op_role = 0, op_role_var = [], shape = [3, 3], str_value = , value = 2.0)
+    {Out=['fc_0.w_0']} = fill_constant(inputs={}, dtype = 5, force_cpu = False, op_device = , op_namescope = /, op_role = 0, op_role_var = [], shape = [2, 3], str_value = , value = 2.0)
+}
+

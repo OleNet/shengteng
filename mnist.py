@@ -6,8 +6,8 @@ import paddle
 import paddle.fluid.layers as layers
 import ascend_optimizer
 
+ASCEND = False
 ASCEND = True
-#ASCEND = False
 
 batch_size = 3
 cls_num = 2
@@ -49,7 +49,7 @@ if ASCEND == False:
 
 
 rr = fluid.layers.range(0, 3, 1, 'float32')
-#fluid.reduce_sum(rr)
+# fluid.layers.reduce_sum(rr)
 #y = rr[0]
 
 
@@ -76,7 +76,7 @@ print('11111111111111111111111')
 
 ###############################
 #fetch_list = [image, fc0, fc2, image, ss, scaler, x, expand]
-fetch_list = [rr]
+fetch_list = [cost, rr]
 #fetch_list = [fc0]
 
 if ASCEND:

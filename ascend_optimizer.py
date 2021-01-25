@@ -67,23 +67,28 @@ class AscendIRParser(object):
             ge_out_operator.append(self.var2geop[name])
         # hack back prop vars
         # ge_in_operator.append(self.var2geop["reduce_sum_0.tmp_0@GRAD"])
-        #if begin_graph_idx > 0:
-            #ge_out_operator[0] = self.var2geop["fc_0.w_0"]
+        if begin_graph_idx > 0:
+            pass
+            # ge_out_operator[1] = self.var2geop["range_0.tmp_0"]
+            #ge_in_operator.append(self.var2geop["fill_constant_1.tmp_0"])
+            #ge_in_operator.append(self.var2geop["fill_constant_3.tmp_0"])
+            #ge_in_operator.append(self.var2geop["fill_constant_5.tmp_0"])
             #import pdb
             #pdb.set_trace()
 
-     
+
             #ge_in_operator.append(self.var2geop["fill_constant_1.tmp_0"])
             #ge_out_operator.append(self.var2geop["fill_constant_1.tmp_0"])
 
             #ge_in_operator.append(self.var2geop["fill_constant_3.tmp_0"])
             #ge_out_operator.append(self.var2geop["fill_constant_3.tmp_0"])
-#
+
             #ge_in_operator.append(self.var2geop["fill_constant_5.tmp_0"])
             #ge_out_operator.append(self.var2geop["fill_constant_5.tmp_0"])
 
         # ge_out_operator[3] = self.var2geop["softmax_with_cross_entropy_0.tmp_1@GRAD"]
-        print("ge_out_operator: ", ge_out_operator)
+        # print("ge_out_operator: ", ge_out_operator)
+
         if len(ge_in_operator) == 0: # ge graph must have at least one input and one output
             ge_in_operator.append(self.var2geop["fc_0.w_0"])
             ge_out_operator.append(self.var2geop["fc_0.w_0"])

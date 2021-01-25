@@ -1,0 +1,120 @@
+var cast_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32) >>>>>>>>>>>>>>>>>>>
+22222222222222222222222222222222
+>>>>>>>>>>>>>>>> cost var tmp_1 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+11111111111111111111111
+99999999999999999999999999999999
+not persistable vars : var fc_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var fc_1.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var equal_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.BOOL)
+not persistable vars : var cast_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var print_cast_0.tmp_0_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var softmax_with_cross_entropy_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var softmax_with_cross_entropy_0.tmp_1 : fluid.VarType.LOD_TENSOR.shape(-1, 1).astype(VarType.FP32)
+not persistable vars : var fill_constant_1.tmp_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var fill_constant_3.tmp_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var fill_constant_5.tmp_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var range_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1,).astype(VarType.FP32)
+not persistable vars : var expand_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 6).astype(VarType.FP32)
+not persistable vars : var unsqueeze2_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3, 1).astype(VarType.FP32)
+not persistable vars : var unsqueeze2_0.tmp_1 : fluid.VarType.LOD_TENSOR.shape(0, -1, 3).astype(VarType.FP32)
+not persistable vars : var squeeze_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var squeeze_0.tmp_1 : fluid.VarType.LOD_TENSOR.shape(0, -1, 3, 1).astype(VarType.FP32)
+not persistable vars : var reduce_sum_0.tmp_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var tmp_1 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var fc_1.w_0@GRAD : fluid.VarType.LOD_TENSOR.shape(3, 3).astype(VarType.FP32)
+not persistable vars : var fc_1.tmp_0@GRAD : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var fc_0.tmp_0@GRAD : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var tmp_0@GRAD : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var softmax_with_cross_entropy_0.tmp_1@GRAD : fluid.VarType.LOD_TENSOR.shape(-1, 1).astype(VarType.FP32)
+not persistable vars : var cast_0.tmp_0@GRAD : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+not persistable vars : var reduce_sum_0.tmp_0@GRAD : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var tmp_1@GRAD : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)
+not persistable vars : var fc_0.w_0@GRAD : fluid.VarType.LOD_TENSOR.shape(2, 3).astype(VarType.FP32)
+input_varlist:  [var image : fluid.VarType.LOD_TENSOR.shape(-1, 2).astype(VarType.FP32), var index : fluid.VarType.LOD_TENSOR.shape(-1,).astype(VarType.INT32), var label : fluid.VarType.LOD_TENSOR.shape(-1, 1).astype(VarType.INT64), persist trainable param fc_0.w_0 : fluid.VarType.LOD_TENSOR.shape(2, 3).astype(VarType.FP32), persist trainable param fc_1.w_0 : fluid.VarType.LOD_TENSOR.shape(3, 3).astype(VarType.FP32), persist var learning_rate_0 : fluid.VarType.LOD_TENSOR.shape(1,).astype(VarType.FP32)]
+begin parse startup
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [1]
+dtype:  5
+value:  0.009999999776482582
+learning_rate_0 is Persistable in fill_constant
+******************** {}
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [3, 3]
+dtype:  5
+value:  2.0
+fc_1.w_0 is Persistable in fill_constant
+******************** {'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf02f0>}
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [2, 3]
+dtype:  5
+value:  2.0
+fc_0.w_0 is Persistable in fill_constant
+******************** {'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf02f0>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0630>}
+ge_out_operator:  []
+begin parse main
+_construct_input_map for 0 input var[image]
+_construct_input_map for 1 input var[index]
+_construct_input_map for 2 input var[label]
+_construct_input_map for 3 param var[fc_0.w_0]
+_construct_input_map for 4 param var[fc_1.w_0]
+_construct_input_map for 5 param var[learning_rate_0]
+op[mul] has been registered
+begin to parse op mul
+====== ['image', 'fc_0.w_0']
+====== ['fc_0.tmp_0']
+(-1, 2)
+(2, 3)
+.7
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>}
+op[mul] has been registered
+begin to parse op mul
+====== ['fc_0.tmp_0', 'fc_1.w_0']
+====== ['fc_1.tmp_0']
+(-1, 3)
+(3, 3)
+.9
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>}
+op[equal] has been registered
+begin to parse op equal
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>}
+op[cast] has been registered
+begin to parse op cast
+dtype in cast:  5
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>}
+op[print] has not been registered, parse failed...
+op[elementwise_mul] has been registered
+begin to parse op elementwise_mul
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>, 'cast_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403170>}
+op[softmax_with_cross_entropy] has been registered
+begin to parse op softmax_with_cross_entropy
+========= ['label', 'tmp_0']
+var tmp_0 : fluid.VarType.LOD_TENSOR.shape(-1, 3).astype(VarType.FP32)
+.20
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>, 'cast_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403170>, 'tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e84031f0>}
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [1]
+dtype:  5
+value:  0.0
+self.op.output('Out')[0]: fill_constant_1.tmp_0 is not persistable in fill_constant
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>, 'cast_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403170>, 'tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e84031f0>, 'softmax_with_cross_entropy_0.tmp_1': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0df0>, 'softmax_with_cross_entropy_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa31a329970>}
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [1]
+dtype:  5
+value:  0.0
+self.op.output('Out')[0]: fill_constant_3.tmp_0 is not persistable in fill_constant
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>, 'cast_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403170>, 'tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e84031f0>, 'softmax_with_cross_entropy_0.tmp_1': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0df0>, 'softmax_with_cross_entropy_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa31a329970>, 'fill_constant_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0530>}
+op[fill_constant] has been registered
+begin to parse op fill_constant
+shape:  [1]
+dtype:  5
+value:  0.0
+self.op.output('Out')[0]: fill_constant_5.tmp_0 is not persistable in fill_constant
+******************** {'image': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf05f0>, 'index': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0730>, 'label': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0db0>, 'fc_0.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0770>, 'fc_1.w_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf08b0>, 'learning_rate_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0930>, 'fc_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0970>, 'fc_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0b70>, 'equal_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403030>, 'cast_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e8403170>, 'tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa2e84031f0>, 'softmax_with_cross_entropy_0.tmp_1': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0df0>, 'softmax_with_cross_entropy_0.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa31a329970>, 'fill_constant_1.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0530>, 'fill_constant_3.tmp_0': <paddle.fluid.core_avx.GEOperator object at 0x7fa232cf0a70>}
+op[range] has been registered
+begin to parse op range

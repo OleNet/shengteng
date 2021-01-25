@@ -522,6 +522,14 @@ class FillConstantParser(AscendParserBase):
         shape = self.op.attr("shape")
         dtype = self.op.attr("dtype")
         value = self.op.attr("value")
+        print("self.op.output_arg_names[0]", self.op.output_arg_names[0])
+        #if self.op.output_arg_names[0]=="fill_constant_3.tmp_0" \
+        #   or self.op.output_arg_names[0]=="fill_constant_1.tmp_0" \
+        #   or self.op.output_arg_names[0]=="fill_constant_5.tmp_0":
+        #    import pdb
+        #    pdb.set_trace()
+        if dtype in [1,2,3,4,5,6]:
+            value = float(self.op.attr("str_value"))
         print("shape: ", shape)
         print("dtype: ", dtype)
         print("value: ", value)
@@ -746,6 +754,9 @@ class RangeParser(AscendParserBase):
         start = self.get_ge_input(self.op.input_arg_names[0])
         end = self.get_ge_input(self.op.input_arg_names[1])
         delta = self.get_ge_input(self.op.input_arg_names[2])
+        print("~~~~~~~~~~~~~~~~~~~~~start: ", start)
+        print("~~~~~~~~~~~~~~~~~~~~~start: ", end)
+        print("~~~~~~~~~~~~~~~~~~~~~start: ", delta)
         #dtype = self.ascend_helper.dtype2ge(5)
         #dtype = self.op.attr("dtype")
 
@@ -772,9 +783,10 @@ class RangeParser(AscendParserBase):
 
 
         ge_range = core.GEOperatorFactory.create_operator("range" + self.getid(), "Range")\
-        .set_input("start", start)\
-        .set_input("limit", end) \
+        .set_input("start", end)\
+        .set_input("limit", start) \
         .set_input("delta", delta)
+        # .update_output_desc("y", core.GETensorDesc(core.GEShape(shape), core.GEFormat.FORMAT_ND, core.GEDataType.DT_FLOAT))
         return [ge_range]
 
 
@@ -806,17 +818,60 @@ class UnSqueezeParser(AscendParserBase):
 
 class UniformRandomParser(AscendParserBase):
     def __init__(self, graph, var2geop):
-        super(niformRandomParser, self).__init__(graph, var2geop)
+        super(UniformRandomParser, self).__init__(graph, var2geop)
         self.parser_name = "uniform_random"
 
     def _apply(self):
         shape = self.op.attr("shape")
-        dtype = self.op.attr("dtype")
-        min_v = self.op.attr("min")
-        max_v = self.op.attr("max")
-        seed = self.op.attr("seed")
+        #dtype = self.op.attr("dtype")
+        #min_v = self.op.attr("min")
+        #max_v = self.op.attr("max")
+        #seed = self.op.attr("seed")
 
-        ge_range = core.GEOperatorFactory.create_operator("uniform_random" + self.getid(), "RandomUniform").set_input("shape", tensor).set_attr_int32("axes", axes)
+        #grad = self.get_ge_input(self.op.input_arg_names[0])
+        #x = self.get_ge_input(self.op.input_arg_names[1])
+        #factor = self.op.attr("factor")
+
+
+        #shape = self.op.attr("shape")
+        axis = 0
+        if shape[0] == -1:
+            axis = 1
+            shape = shape[1:]
+        print("shape: ", shape)
+        tensor = self.create_ge_tensor([len(shape)], 2, shape)
+        shape_tensor = core.GEOperatorFactory.create_operator("shape" + self.getid(), "Const").set_attr_tensor("value", tensor)
+
+        """
+        min_scale = self.create_ge_tensor([1], 5, min_v)
+        min_scale = core.GEOperatorFactory.create_operator("const" + self.getid(), "Const").set_attr_tensor("value", min_scale)
+        min_tensor = core.GEOperatorFactory.create_operator("broadcast_to_d" + self.getid(), "BroadcastTo").set_input("x", min_scale).set_input("shape", shape_tensor)
+
+        max_scale = self.create_ge_tensor([1], 5, max_v)
+        max_scale = core.GEOperatorFactory.create_operator("const" + self.getid(), "Const").set_attr_tensor("value", max_scale)
+        max_tensor = core.GEOperatorFactory.create_operator("broadcast_to_d" + self.getid(), "BroadcastTo").set_input("x", max_scale).set_input("shape", shape_tensor)
+
+        """
+
+        ge_range = core.GEOperatorFactory.create_operator("uniform_random" + self.getid(), "RandomUniform")\
+            .set_input("shape", shape_tensor)\
+            .set_attr_int32("dtype", self.ascend_helper.dtype2ge(5))  \
+            .set_attr_float("seed", 1)\
+            .set_attr_float("seed2", 1) 
+                        
+
+
+        """
+        (max_tensor - min_tensor) / 2 * (ge_range - (-1)) + min_tensor
+
+
+
+        x_power = core.GEOperatorFactory.create_operator("x_power" + self.getid(), "Power").set_input("x", x).set_attr_float("power", factor - 1)
+        x_power_mul_factor = core.GEOperatorFactory.create_operator("x_power_mul_factor" + self.getid(), "Mul").set_input("x1", x).set_input("x2", factor_tensor)
+        x_power_mul_factor_grad = core.GEOperatorFactory.create_operator("x_power_mul_factor_grad" + self.getid(), "Mul").set_input("x1", x_power_mul_factor).set_input("x2", grad)
+        return [shape_tensor, factor_scale, factor_tensor, x_power, x_power_mul_factor, x_power_mul_factor_grad]
+        """
+
         return [ge_range]
 
 
